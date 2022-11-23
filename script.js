@@ -47,7 +47,7 @@ async function getCurrency() {
     let value = inp.value.replaceAll(' ', '');
     let result = await exchange(value, currencies);
     const val = parseFloat(result.result.toString().replaceAll(' ', ''));
-    const formatter = new Intl.NumberFormat(undefined, { maximumFractionDigits: 8 });
+    const formatter = new Intl.NumberFormat(undefined, { maximumFractionDigits: 20 });
     let value11 = isNaN(formatter.format(val)) ? '' : formatter.format(val);
     document.querySelector('.right_value').value = value11;
     document.querySelector('.right_text').innerHTML = `1 ${currencies[1]} = ${(1 / result.currency).toFixed(4)} ${currencies[0]}`;
